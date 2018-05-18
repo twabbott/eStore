@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 /*
 TODO:
 
@@ -15,22 +16,39 @@ Add some font-awesome icons for search, account/sign-in, and the cart.  Align th
 */
 export default (props) => {
     return (
-        <div className="row">
-            <div className="col-md-3 logo">
-                <img className="img-responsive" src="../img/spatula-city-logo.png" />
-            </div>
-            <div className="col-md-5">
-                PANCAKE TURNERS | SCRAPERS | BARBECUE | SPREADERS | OTHER
-            </div>
-            <div className="col-md-2">
-                (search)
-            </div>
-            <div className="col-md-1">
-                (sign in)
-            </div>
-            <div className="col-md-1">
-                (cart)
-            </div>
-        </div>
-    );
+        <Navbar inverse collapseOnSelect>
+            <Navbar.Header>
+                <Navbar.Brand>
+                    <a href="#">
+                        <img className="img-responsive" src="../img/spatula-city-logo.png" alt="logo" />
+                    </a>
+                </Navbar.Brand>
+                <Navbar.Toggle />
+            </Navbar.Header>
+            <Navbar.Collapse>
+                <Nav>
+                    <NavItem eventKey={1} href="#">
+                        Link
+                    </NavItem>
+                    <NavItem eventKey={2} href="#">
+                        Link
+                    </NavItem>
+                    <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
+                        <MenuItem eventKey={3.1}>Action</MenuItem>
+                        <MenuItem eventKey={3.2}>Another action</MenuItem>
+                        <MenuItem eventKey={3.3}>Something else here</MenuItem>
+                        <MenuItem divider />
+                        <MenuItem eventKey={3.3}>Separated link</MenuItem>
+                    </NavDropdown>
+                </Nav>
+                <Nav pullRight>
+                    <NavItem eventKey={1} href="#">
+                        Link Right
+                    </NavItem>
+                    <NavItem eventKey={2} href="#">
+                        Link Right
+                    </NavItem>
+                </Nav>
+            </Navbar.Collapse>
+        </Navbar>);
 }
