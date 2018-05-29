@@ -4,15 +4,21 @@
 
 high priority:
 *   Actually try to run this using the student registration db
-*   Get ES6 imports working.  Using require() everywhere is LAME!!
+*   Get ES6 imports working.  Using require() everywhere is LAME!!  See this
+    link: https://medium.com/the-node-js-collection/an-update-on-es6-modules-in-node-js-42c958b890c
 
 Bugs (blocking/critical):
     (none)
 
 It would be nice:
+*   The startup console output can be improved
+    *   Link can be underlined and behave like a link, like what create-react-app 
+        generates for you.
+    *   Is there a way to do color?
+    *   See if there is a library on node.js console output, or documentation, 
+        or whatever.
 *   If there was some server-side rendering to show a list of tables on the 
     welcome page.
-*   If on startup, the output
 
 Issues (there is a work-around):
 *   When you call dumpAllTables, make it back up the previous versions.
