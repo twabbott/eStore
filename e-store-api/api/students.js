@@ -1,4 +1,4 @@
-const studentModel = require("../studentModel");
+const studentModel = require("../models/students");
 const studentTable = studentModel.StudentTable;
 
 exports.init = function (app) {
@@ -121,3 +121,6 @@ exports.init = function (app) {
     });
 }
 
+exports.dumpAll = () => {
+    studentTable.dumpAll();
+}

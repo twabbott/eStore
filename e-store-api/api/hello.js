@@ -11,4 +11,5 @@ exports.init = (app) => {
             message: "Hello, world!"
         });
     });
+  
 };
