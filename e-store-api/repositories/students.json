@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1000,
+        "firstName": "Denzel",
+        "lastName": "Washington",
+        "male": true,
+        "uvuId": 11223344,
+        "race": "black",
+        "age": 23,
+        "isVeteran": true
+    },
+    {
+        "id": 1001,
+        "firstName": "Tom",
+        "lastName": "Cruise",
+        "male": true,
+        "uvuId": 88226644,
+        "race": "caucasian",
+        "age": 32,
+        "isVeteran": false
+    },
+    {
+        "id": 1002,
+        "firstName": "Jackie",
+        "lastName": "Chan",
+        "male": true,
+        "uvuId": 33661199,
+        "race": "asian",
+        "age": 34,
+        "isVeteran": false
+    },
+    {
+        "id": 1003,
+        "firstName": "Jennifer",
+        "lastName": "Lopez",
+        "male": false,
+        "uvuId": 99110099,
+        "race": "hispanic",
+        "age": 32,
+        "isVeteran": true
+    }
+]

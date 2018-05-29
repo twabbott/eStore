@@ -1,5 +1,4 @@
-const studentModel = require("../models/students");
-const studentTable = studentModel.StudentTable;
+const students = require("../services/students");
 
 exports.init = function (app) {
     /******************************************************
@@ -7,7 +6,7 @@ exports.init = function (app) {
      ******************************************************/
     app.get("/api/students", function (req, res, next) {
         // Fetch all the students
-        var table = studentTable.getAllStudents();
+        var table = students.getAllStudents();
 
         // Compose the response
         res.set("Content-Type", "application/json");
@@ -26,7 +25,7 @@ exports.init = function (app) {
         }
 
         // Fetch the student by ID
-        var student = studentTable.getStudent(id);
+        var student = students.getStudent(id);
 
         // If there is no student for that ID, send a 404
         if (student == null) {
@@ -46,7 +45,7 @@ exports.init = function (app) {
      ******************************************************/
     app.post("/api/students", function (req, res) {
         // Create the new student object
-        var student = studentTable.createStudent(
+        var student = students.createStudent(
             req.body.firstName,
             req.body.lastName,
             req.body.male,
@@ -78,7 +77,7 @@ exports.init = function (app) {
         }
 
         // Update the student
-        var found = studentTable.updateStudent(
+        var found = students.updateStudent(
             id, 
             req.body.firstName,
             req.body.lastName,
@@ -110,7 +109,7 @@ exports.init = function (app) {
             return;
         }
 
-        var found = studentTable.deleteStudent(id);
+        var found = students.deleteStudent(id);
         if (!found) {
             res.status(404).send({error: "No record found matching id=" + 
                 req.params.Id + "."});
@@ -119,8 +118,4 @@ exports.init = function (app) {
 
         res.sendStatus(204);
     });
-}
-
-exports.dumpAll = () => {
-    studentTable.dumpAll();
 }

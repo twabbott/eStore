@@ -29,7 +29,9 @@ let api = require('./api');
 api.init(app);
 
 // Start up Node.
-app.listen(8192, function() {
-  console.log("StudentRegistrationApi app listening on port 8192.");
+const port = 8192
+app.listen(port, function() {
+  console.log(`eStore API now listening on port ${port}.`);
+  console.log(`    http://localhost:${port}`);
 });
 

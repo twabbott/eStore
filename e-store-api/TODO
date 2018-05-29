@@ -1,0 +1,34 @@
+********************************************************************************
+***   T O D O
+********************************************************************************
+
+high priority:
+*   Actually try to run this using the student registration db
+*   Get ES6 imports working.  Using require() everywhere is LAME!!
+
+Bugs (blocking/critical):
+    (none)
+
+It would be nice:
+*   If there was some server-side rendering to show a list of tables on the 
+    welcome page.
+*   If on startup, the output
+
+Issues (there is a work-around):
+*   When you call dumpAllTables, make it back up the previous versions.
+    *   Never got backup to work for dumpAllTables.  Looks like when you 
+        require() a file, node keeps a lock on it or something.
+
+
+********************************************************************************
+***   J O U R N A L
+********************************************************************************
+
+2018/05/29
+*   We now have a generic repo layer!
+    *   Now to add a table all you have to do is modify ./repositories/index.js
+    *   You still need to add a service layer to enforce schema and other 
+        constraints.
+    *   PROBLEM: The dumpAllTables function won't back up the previous version.
+        It seems to just make two copies of the same file.
+    
