@@ -45,14 +45,7 @@ exports.init = function (app) {
      ******************************************************/
     app.post("/api/students", function (req, res) {
         // Create the new student object
-        var student = students.createStudent(
-            req.body.firstName,
-            req.body.lastName,
-            req.body.male,
-            req.body.uvuId,
-            req.body.race,
-            req.body.age,
-            req.body.isVeteran);
+        var student = students.createStudent(req.body);
 
         if (student == null) {
             res.status(400).send({error: "You did the bad thing."});
@@ -77,14 +70,7 @@ exports.init = function (app) {
         }
 
         // Update the student
-        var found = students.updateStudent(
-            id, 
-            req.body.firstName,
-            req.body.lastName,
-            req.body.male,
-            req.body.uvuId,
-            req.body.race,
-            req.body.age);
+        var found = students.updateStudent(id, req.body);
             
         if (!found) {
             res.status(404).send({error: "No record found matching id=" + 

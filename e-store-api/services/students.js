@@ -1,39 +1,15 @@
 const repository = require("../repositories");
 const students = repository.tables.students;
 
-exports.addStudent = (firstName, lastName, male, uvuId, race, age, isVeteran) => {
-    return students.create({
-        firstName,
-        lastName,
-        male,
-        uvuId,
-        race,
-        age,
-        isVeteran
-    });    
+exports.createStudent = (data) => students.create(data);
+
+exports.getAllStudents = () => students.readAll();
+
+exports.getStudent = (id) => students.read(id);
+
+exports.updateStudent = (id, data) => {
+    data.id = id;
+    return students.update(data);
 }
 
-exports.getAllStudents = () => {
-    return students.readAll();
-}
-
-exports.getStudent = (id) => {
-    return students.read(id);
-}
-
-exports.updateStudent = (id, firstName, lastName, male, uvuId, race, age, isVeteran) => {
-    return students.update({
-        id,
-        firstName,
-        lastName,
-        male,
-        uvuId,
-        race,
-        age,
-        isVeteran
-    });    
-}
-
-exports.deleteStudent = (id) => {
-    return students.delete(id);
-}
+exports.deleteStudent = (id) => students.delete(id);

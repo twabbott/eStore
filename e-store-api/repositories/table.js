@@ -4,7 +4,8 @@ const fs = require('fs');
 
 //*** External functions *******************************
 class Table {
-    constructor(initialState = []) {
+    constructor(schema, initialState = []) {
+        this._schema = schema;
         this._table = initialState;        
         this._nextId = 1000;
 
@@ -16,18 +17,30 @@ class Table {
         });
     }
 
+    _filterIntoNewRow(data) {
+        let row = {};
+        for (let prop in this._schema.columns) {
+            if (typeof data[prop] === "undefined") {
+                continue;
+            }
+
+            if (typeof data[prop] !== this._schema.columns[prop]) {
+                throw `Error validating row data for table "${this._schema.name}".  Column "${prop}" must be of type "${this._schema.columns[prop]}".`;
+            }
+
+            row[prop] = data[prop];
+        }
+        
+        return row;
+    }
+
     create(data) {
         if (data === null || typeof data !== 'object') {
             throw `Table.create() - ERROR: data must be an object.`;
         }
 
-        let newRow = Object.assign(
-            {},
-            data,
-            {
-                id: this._nextId
-            }
-        );
+        let newRow = this._filterIntoNewRow(data);
+        newRow.id = this._nextId++;
 
         this._table = this._table.concat(newRow);
         return newRow;
@@ -59,7 +72,7 @@ class Table {
             updatedRow = Object.assign(
                 {},
                 row,
-                data
+                this._filterIntoNewRow(data)
             );
             return updatedRow;
         });
@@ -86,6 +99,6 @@ class Table {
     }
 }
 
-module.exports = (data) => {
-    return new Table(data);
+module.exports = (schema, data) => {
+    return new Table(schema, data);
 }

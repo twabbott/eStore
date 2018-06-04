@@ -26,8 +26,10 @@ export default (props) => {
                     <img className="img-responsive" src="../img/spatula-city-logo.png" alt="logo" />
                 </a>
                 </Col>
-                <Col xs={9} className="motto">
-                    "We do spatulas, and that's all!"
+                <Col xs={9}>
+                    <div className="motto">
+                        "We do spatulas, and that's all!"
+                    </div>
                 </Col>
             </Row>
             <Navbar inverse collapseOnSelect>

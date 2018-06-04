@@ -3,9 +3,9 @@ const createTable = require("./table");
 
 const _tables = {};
 
-exports.initializeTable = (name) => {
-    const data = require(`./${name}.json`);
-    _tables[name] = createTable(data);
+exports.initializeTable = (schema) => {
+    const data = require(`./${schema.name}.json`) || [];
+    _tables[schema.name] = createTable(schema, data);
 }
 
 const _dumpTable = (tablename, table) => {
