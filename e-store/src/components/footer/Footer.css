@@ -1,0 +1,38 @@
+.footer {
+    color: #DEDF71;
+    background-color: #6E0120;
+    font-variant: small-caps;
+    font-size: 10pt;
+}
+
+.copyright {
+    text-align: center;    
+    margin-top: 12pt;
+    margin-bottom: 12pt;
+}
+
+a:link {
+    color: #DEDF71;
+}
+
+/* visited link */
+a:visited {
+    color: #DEDF71;
+}
+
+/* mouse over link */
+a:hover {
+    color: #DEDF71;
+    text-decoration: underline;
+}
+
+/* selected link */
+a:active {
+    color: #DEDF71;
+}
+
+h1 {
+    color: rgb(225, 226, 166);
+    font-size: 14pt;
+    font-weight: bold;
+}

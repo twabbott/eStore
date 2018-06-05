@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
-import { Grid, Row, Col } from "react-bootstrap";
+import { Row, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
-import "./header.css";
+import "./Header.css";
 /*
 TODO:
 
@@ -21,14 +22,18 @@ export default (props) => {
     return (
         <div>
             <Row className="header">
-                <Col xs={3}>
-                <a href="#">
-                    <img className="img-responsive" src="../img/spatula-city-logo.png" alt="logo" />
-                </a>
+                <a href="#" />
+                <Col sm={3}>
+                    <Link to="/home"><img className="img" src="../img/spatula-city-logo.png" alt="logo" /></Link>
                 </Col>
-                <Col xs={9}>
-                    <div className="motto">
-                        "We do spatulas, and that's all!"
+                <Col sm={9}>
+                    <div className="left-area">
+                        <div className="motto">
+                            "We do spatulas, and that's all!"
+                        </div>
+                        <div className="phone-number">
+                            (888)-SPA-TULA
+                        </div>
                     </div>
                 </Col>
             </Row>
@@ -40,10 +45,10 @@ export default (props) => {
                 </Navbar.Header>
                 <Navbar.Collapse>
                     <Nav>
-                        <NavItem eventKey={1} href="#">
+                        <NavItem eventKey={1} href="/">
                             Link
                         </NavItem>
-                        <NavItem eventKey={2} href="#">
+                        <NavItem eventKey={2} href="/">
                             Link
                         </NavItem>
                         <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
@@ -55,10 +60,10 @@ export default (props) => {
                         </NavDropdown>
                     </Nav>
                     <Nav pullRight>
-                        <NavItem eventKey={1} href="#">
+                        <NavItem eventKey={1} href="/">
                             Link Right
                         </NavItem>
-                        <NavItem eventKey={2} href="#">
+                        <NavItem eventKey={2} href="/">
                             Link Right
                         </NavItem>
                     </Nav>
