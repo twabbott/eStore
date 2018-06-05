@@ -3,15 +3,30 @@ const createTable = require("./table");
 
 const _tables = {};
 
-exports.initializeTable = (schema) => {
-    const data = require(`./${schema.name}.json`) || [];
+exports.initializeTable = (schemaName) => {
+    let schema;
+    try {
+        schema = require(`./tables/${schemaName}`);
+    } 
+    catch (err) {
+        throw `Unable to find table schema: "/repositories/tables/${schemaName}.js`;
+    }
+
+    let data = [];
+    try {
+        data = require(`./tables/${schema.name}.json`);
+    } 
+    catch (err) {
+        // Don't care.  Just leave the table blank.
+    }
+
     _tables[schema.name] = createTable(schema, data);
 }
 
 const _dumpTable = (tablename, table) => {
-    filename = `./repositories/${tablename}.json`;
+    filename = `./repositories/tables/${tablename}.json`;
     // fs.exists(filename, exists => {
-    //     let backupName = `./repositories/${tablename}.prev.json`;
+    //     let backupName = `./repositories/tables/${tablename}.prev.json`;
     //     console.log(`Backing up: ${filename} => ${backupName}`);
     //     fs.createReadStream(filename).pipe(fs.createWriteStream(backupName));
     // });

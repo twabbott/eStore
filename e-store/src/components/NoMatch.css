@@ -1,0 +1,14 @@
+div.no-match {
+    font-size: 12pt;
+    margin-left: 30px;
+    margin-top: 160px
+}
+
+div.no-match h1 {
+    margin-top: 20px;
+    font-size: 16pt;
+}
+
+.no-match-emoji {
+    font-size: 40pt;
+}

@@ -1,11 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { Col } from "react-bootstrap";
 
 import "./Footer.css";
 
 export default () => (
-    <div className="footer">
+    <footer className="footer">
         <div className="container-fluid">        
             <Col smOffset={2} sm={5} mdOffset={3} md={4}>
                 <h1>Customer Service</h1>
@@ -28,6 +28,6 @@ export default () => (
                 (c) 2018 Tom Abbott all rights reserved
             </div>
         </div>
-    </div>
+    </footer>
 );
 
