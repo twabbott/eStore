@@ -2,11 +2,11 @@
 import { takeLatest } from "redux-saga/effects";
 
 // Actions
-import { productLoadAction } from "../reducers/productsReducer";
+import { PRODUCT_LOAD } from "../reducers/productsReducer";
 
 // Watcher sagas
 import productsWatcherSaga from "./productsSaga";
 
 export default function* () {
-    yield takeLatest(productLoadAction, productsWatcherSaga);
+    yield takeLatest(PRODUCT_LOAD, productsWatcherSaga);
 }
