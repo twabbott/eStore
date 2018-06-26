@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Router, Switch, Route, Link } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Products from "./products/Products";
 import ProductList from "./products/ProductList";
 
