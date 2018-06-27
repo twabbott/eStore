@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { Col } from 'react-bootstrap';
+import { Table, Col } from 'react-bootstrap';
 
 import "./Products.css";
 
@@ -21,9 +21,9 @@ const mapDispatchToProps = dispatch => {
 
 class Products extends Component
 {
-    // constructor(props) {
-    //     super(props);
-    // }
+    constructor(props) {
+        super(props);
+    }
 
     componentDidMount() {
         if (!this.props.productInfo && !this.props.error && !this.props.loading) {
@@ -31,32 +31,89 @@ class Products extends Component
         }
     }
 
+    description() {
+        const { description } = this.props.productInfo;
+
+        if (Array.isArray(description)) {
+            return description.map((section, idx) => {
+                if (Array.isArray(section)) {
+                    return <ul>
+                            {section.map((item, id) => <li key={id}>{item}</li>)}
+                        </ul>;
+                }
+
+                return <p key={idx}>{section}</p>;
+            });
+        }
+
+        return description;
+    }
+
+    loadSuccess() {
+        const { stockNumber, name, manufacturer, price, specs } = this.props.productInfo;
+        const imagePath = `/Products/${this.props.productInfo.image}_reg.png`;
+        return (
+            <section id="product-info">
+                <h1>
+                    {manufacturer} {name}
+                </h1>
+                <div>
+                    <div className="product-image">
+                        <img src={imagePath} alt="product image" className="img-responsive" />
+                    </div>
+                    <div className="product-summary">
+                        <h2>
+                            ${price}
+                        </h2>
+                        <h3>
+                            Item #{stockNumber}
+                        </h3>
+                        <h3 className="product-description-margin">Description:</h3>
+                        <div>
+                            {this.description()}
+                        </div>
+                    </div>
+                </div>
+                <Table striped condensed hover>
+                    <thead>
+                        <tr><th colspan="2">Specifications:</th></tr>
+                    </thead>
+                    <tbody> {
+                        specs.map((item, id) => 
+                            <tr key={id}>
+                                <td>{item[0]}</td>
+                                <td>{item[1]}</td>
+                            </tr>)
+                    }
+                    </tbody>
+                </Table>
+            </section>
+        );
+    }
+
     loadingPage() {
         return (
-            <div className="container-fluid">
-                <div className="row">
-                    <Col md={4}>
-                        <div className="product-loading product-loading-image">
-                            <div className="loader"></div>
-                        </div>
-                    </Col>
-                    <Col md={8}>
-                        <div className="product-loading product-loading-title"></div>
-                        <div className="product-loading product-loading-price"></div>
-                        <div className="product-loading product-loading-description"></div>
-                        <div className="product-loading product-loading-line"></div>
-                        <div className="product-loading product-loading-line"></div>
-                        <div className="product-loading product-loading-halfline"></div>
-                    </Col>
+            <section id="loading">
+                <p className="title" />
+                <p className="image">
+                    <div className="loader"></div>
+                </p>
+                <div className="product-summary">
+                    <p className="price" />
+                    <p className="stock-number" />
+                    <p className="description" />
+                    <p className="line" />
+                    <p className="line" />
+                    <p className="line" />
+                    <p className="half-line" />
                 </div>
-            </div>
+            </section>
         );
     }
 
     loadError () {
         return (
             <div>
-                <img className="product-image" src="" />
                 <h1>¯\_(ツ)_/¯</h1>
                 <p>There was an error loading this product.  Product id: {this.props.productId}</p>                
                 <div>
@@ -65,26 +122,16 @@ class Products extends Component
             </div>);
     } 
 
-    loadSuccess() {
-        return (
-            <div>
-                <div>
-                    This is your product description!  Product number={this.props.productId}
-                </div>
-            </div>
-        );
-    }
-
     render() {
-        if (this.props.loading) {
-             return this.loadingPage();
-        }
-
         if (this.props.error) {
              return this.loadError();
         }
 
-        return this.loadSuccess();
+        if (this.props.productInfo) {
+            return this.loadSuccess();
+        }
+
+         return this.loadingPage();
     }
 }
 

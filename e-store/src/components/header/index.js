@@ -24,7 +24,7 @@ export default (props) => (
                 <Link to="/"><img className="img" src="../img/spatula-city-logo.png" alt="logo" /></Link>
             </Col>
             <Col sm={9}>
-                <div className="left-area">
+                <div className="right-area">
                     <div className="motto">
                         "We do spatulas, and that's all!"
                     </div>
@@ -55,7 +55,7 @@ export default (props) => (
                         Spreaders
                     </NavItem>
                     <NavItem eventKey={2} href="/">
-                        Multi-function
+                        Multi-purpose
                     </NavItem>
 
                     <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">

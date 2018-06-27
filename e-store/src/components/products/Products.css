@@ -1,7 +1,3 @@
-.product-loading {
-    background-color: rgb(245, 245, 255);
-}
-
 .loader {
     border: 10px solid white;
     border-radius: 50%;
@@ -11,52 +7,90 @@
     height: 80px;
     -webkit-animation: spin 2s linear infinite; /* Safari */
     animation: spin 2s linear infinite;
-  }
+}
   
-  /* Safari */
-  @-webkit-keyframes spin {
+/* Safari */
+@-webkit-keyframes spin {
     0% { -webkit-transform: rotate(0deg); }
     100% { -webkit-transform: rotate(360deg); }
-  }
+}
   
-  @keyframes spin {
+@keyframes spin {
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
-  }
-  
-
-.product-loading-image {
-    float: left;
-    width: 400px;
-    height: 500px;
 }
 
-.product-loading-title {
-    width: 400px;
+section#loading p {
+    background-color: rgb(226, 242, 255);
+}
+
+section#loading p.title {
+    width: 600px;
     height: 40px;
+    margin-bottom: 20px;
+}
+
+section#loading p.image {
+    width: 400px;
+    height: 400px;
     margin-bottom: 16pt;
+    float: left;
 }
 
-.product-loading-price {
-    width: 175px;
+section#loading p.price {
+    width: 75px;
     height: 40px;
+}
+
+section#loading p.stock-number {
+    width: 175px;
+    height: 30px;
     margin-bottom: 60pt;
 }
 
-.product-loading-description {
-    width: 200px;
-    height: 25px;
-    margin-bottom: 8pt;
+section#loading p.description {
+    width: 175px;
+    height: 30px;
 }
 
-.product-loading-line {
+section#loading p.line {
     width: 400px;
     height: 15px;
     margin-bottom: 8pt;
 }
 
-.product-loading-halfline {
+section#loading p.half-line {
     width: 375px;
     height: 15px;
-    margin-bottom: 8pt;
+    margin-bottom: 400px;
+}
+
+.product-image {
+    width: 400px;
+    height: 400px;
+    box-shadow:0px 0px 5px 0px rgb(182, 182, 182);  
+    float: left;
+}
+
+.product-summary {
+    margin-left: 425px;
+}
+
+.product-description-margin {
+    margin-top: 50px;
+}
+
+section#product-info h1 {
+    font-size: 30pt;
+    font-weight: bold;
+}
+
+section#product-info h2 {
+    font-size: 20pt;
+    font-weight: bold;
+}
+
+section#product-info h3 {
+    font-size: 15pt;
+    font-weight: bold;
 }
