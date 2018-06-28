@@ -71,7 +71,7 @@ export default function*(action) {
         //     url: `http://localhost:8192/api/products/${action.id}`
         // });
 
-        yield call(delay, 4000);
+        //yield call(delay, 1000);
 
 
         yield put(productLoadSuccessAction(nordic));

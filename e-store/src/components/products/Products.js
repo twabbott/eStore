@@ -7,6 +7,9 @@ import "./Products.css";
 
 import { actions } from "../../store";
 
+import ProductReviews from "./ProductReviews";
+import FormattedText from "../common/FormattedText";
+
 const mapStateToProps = state => {
     return {
         ...state.products
@@ -31,26 +34,17 @@ class Products extends Component
         }
     }
 
-    description() {
-        const { description } = this.props.productInfo;
-
-        if (Array.isArray(description)) {
-            return description.map((section, idx) => {
-                if (Array.isArray(section)) {
-                    return <ul>
-                            {section.map((item, id) => <li key={id}>{item}</li>)}
-                        </ul>;
-                }
-
-                return <p key={idx}>{section}</p>;
-            });
-        }
-
-        return description;
-    }
-
     loadSuccess() {
-        const { stockNumber, name, manufacturer, price, specs } = this.props.productInfo;
+        const { 
+            stockNumber, 
+            name, 
+            manufacturer, 
+            price, 
+            specs, 
+            description, 
+            reviews 
+        } = this.props.productInfo;
+
         const imagePath = `/Products/${this.props.productInfo.image}_reg.png`;
         return (
             <section id="product-info">
@@ -70,13 +64,13 @@ class Products extends Component
                         </h3>
                         <h3 className="product-description-margin">Description:</h3>
                         <div>
-                            {this.description()}
+                            <FormattedText content={description} />
                         </div>
                     </div>
                 </div>
                 <Table striped condensed hover>
                     <thead>
-                        <tr><th colspan="2">Specifications:</th></tr>
+                        <tr><th colSpan="2">Specifications:</th></tr>
                     </thead>
                     <tbody> {
                         specs.map((item, id) => 
@@ -87,6 +81,8 @@ class Products extends Component
                     }
                     </tbody>
                 </Table>
+
+                <ProductReviews reviews={reviews} />
             </section>
         );
     }
