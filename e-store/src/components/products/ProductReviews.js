@@ -1,24 +1,47 @@
 import React, { Component } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
 import FormattedText from "../common/FormattedText";
+import StarRating, { fixRating } from "./StarRating";
 
 export const CustomerReview = (props) => 
     <div key={props.key || 0}>
-        <h3>{props.username}</h3>
-        <div style={{ "margin-left": "15px" }}>
-            <div>{props.stars} / 5 stars</div>
+        <h3>
+            <FontAwesomeIcon icon={["fas", "user-circle"]} /> {props.username}
+        </h3>
+        <div style={{ "margin-left": "25px" }}>
+            <StarRating rating={props.stars} /> <strong>{props.title}</strong>
             <div>{props.date}</div>
-            <strong>{props.title}</strong>
             <FormattedText content={props.description} />
         </div>
     </div>;
 
-export default (props) =>
-    <section name="productReviews">
-        <h2>Customer Reviews:</h2>
-        { props.reviews ?
-            props.reviews.map((item, idx) =>
-                <CustomerReview key={idx} {...item} />) :
-            <p>We would love to hear your feedback.  Be the first to write a review for this product!</p>
-        }
-    </section>;
+const averageRating = reviews => {
+    let total = 0;
+    for (let item of reviews) {
+        total += item.stars;
+    }
+
+    return fixRating(total / reviews.length);
+}
+
+export default (props) => {
+    const avg = averageRating(props.reviews);
+    return (
+        <section name="productReviews">
+            <h2>Customer Reviews:</h2>
+            <div>
+                <StarRating rating={avg} /> {avg.toFixed(1)} stars.
+            </div>
+            <div>
+                {props.reviews.length} reviews.  
+            </div>
+            { props.reviews ?
+                props.reviews.map((item, idx) =>
+                    <CustomerReview key={idx} {...item} />) :
+                <p>We would love to hear your feedback.  Be the first to write a review for this product!</p>
+            }
+        </section>
+    );
+}
 

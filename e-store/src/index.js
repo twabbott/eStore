@@ -14,6 +14,13 @@ import App from "./App";
 // Progressive website stuff
 import registerServiceWorker from "./registerServiceWorker";
 
+// Font-Awesome library setup
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { far } from '@fortawesome/free-regular-svg-icons'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+
+library.add(fas, far);
+
 ReactDOM.render(
     <BrowserRouter>
         <Provider store={store}>

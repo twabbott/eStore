@@ -59,6 +59,15 @@ const nordic = {
                 "If it's not made in 'murrica, it's only good for picking up dog s***."
             ]
         },
+        {
+            username: "Howard Towers",
+            stars: 4.0,
+            date: "2017-08-19",
+            title: "It's a spatula",
+            description: [
+                "Not sure what this website's deal is.  A spatula is a spatula unless it's...like, made of solid gold."
+            ]
+        },
     ]
 }
 
