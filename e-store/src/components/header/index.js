@@ -19,20 +19,16 @@ Add some font-awesome icons for search, account/sign-in, and the cart.  Align th
 */ 
 export default (props) => (
     <div>
-        <div className="container-fluid header">
-            <Col sm={3}>
-                <Link to="/"><img className="img" src="../img/spatula-city-logo.png" alt="logo" /></Link>
-            </Col>
-            <Col sm={9}>
-                <div className="right-area">
-                    <div className="motto">
-                        "We do spatulas, and that's all!"
-                    </div>
-                    <div className="phone-number">
-                        (888)-SPA-TULA
-                    </div>
+        <div className="header">
+            <Link to="/"><img className="img" src="../img/spatula-city-logo.png" alt="logo" /></Link>
+            <div className="right-area">
+                <div className="motto">
+                    "We do spatulas, and that's all!"
                 </div>
-            </Col>
+                <div className="phone-number">
+                    (888)-SPA-TULA
+                </div>
+            </div>
         </div>
         <Navbar inverse collapseOnSelect>
             <Navbar.Header>

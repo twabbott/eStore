@@ -6,11 +6,10 @@
     color: #DEDF71;
     margin-top: 10px;
     margin-right: 10px;
-    text-align: right;
 }
 
 .motto {
-    font-size: 24px;
+    font-size: 18px;
     font-weight: bold;
     font-variant: small-caps;
     font-style: italic;
@@ -19,6 +18,18 @@
 .phone-number {
     font-size: 14px;
     font-variant: small-caps;
-    margin-top: 35px;
+    padding-bottom: 6pt;
 }
 
+
+@media only screen and (min-width: 800px) {
+    .right-area {
+        float: right;
+        text-align: right;
+    }
+
+    .motto {
+        font-size: 24px;
+        margin-bottom: 35px;
+    }
+}
