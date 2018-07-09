@@ -8,9 +8,13 @@ import rootSaga from "./sagas";
 
 // exported actions
 import { productLoadAction } from "./reducers/productsReducer";
+import { pageConfigLoadAction } from "./reducers/pageConfigReducer";
+import { productCollectionsLoadAction } from "./reducers/productCollectionsReducer";
 
 export const actions = {
-    productLoadAction
+    productLoadAction,
+    pageConfigLoadAction,
+    productCollectionsLoadAction
 };
 
 // Initialize redux and saga

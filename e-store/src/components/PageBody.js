@@ -5,7 +5,7 @@ import Products from "./products/Products";
 import ProductList from "./products/ProductList";
 
 import NoMatch from "./NoMatch";
-import Home from "./pages/Home";
+import Home from "./homepage";
 
 export default () => (
     <div className="page-body">

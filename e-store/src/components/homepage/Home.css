@@ -1,0 +1,24 @@
+section#homepage-loader div.title {
+    text-align: center;
+    background-color: rgb(241, 241, 241);
+    width: 600px;
+    height: 40px;
+    margin: auto;
+    margin-bottom: 12pt;
+}
+
+section#homepage-loader div.image {
+    width: 400px;
+    height: 400px;
+    margin-bottom: 200px;
+    border-style: solid;
+    border-width: 1px;
+    background-color: rgb(241, 241, 241);
+    border-color: white;
+    margin: auto;
+    margin-bottom: 200px;
+}
+
+section.product-section {
+    margin-bottom: 50pt;    
+}
