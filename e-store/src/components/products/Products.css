@@ -100,6 +100,10 @@ section#product-info h3 {
     font-weight: bold;
 }
 
+.product-thumbnail {
+    margin: 10px;
+}
+
 .product-thumbnail-title {
     font-size: 12pt;
     font-weight: bold;
@@ -109,4 +113,7 @@ section#product-info h3 {
 .product-thumbnail-price {
     font-size: 18pt;
     font-weight: bold;
+}
+
+.product-thumbnail-image {
 }

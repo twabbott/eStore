@@ -13,11 +13,11 @@ export const ProductThumbnail = (props) => {
     const imagePath = `/Products/${props.image}_sm.png`;
 
     return (
-        <section name="product-thumbnail">
-            <div class="img-product-thumbnail">
+        <section className="product-thumbnail">
+            <div className="product-thumbnail-image">
                 <img src={imagePath} alt="product image" className="img-responsive" />
             </div>
-            <div class="product-thumbnail-title">
+            <div className="product-thumbnail-title">
                 {manufacturer} {name}
             </div>
             <div className="product-thumbnail-price">

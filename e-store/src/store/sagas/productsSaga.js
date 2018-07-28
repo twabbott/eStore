@@ -7,11 +7,11 @@ import axios from "axios";
 
 const nordic = {
     id: 1000,
-    stockNumber: "Nord-FM-365",
+    stockNumber: "NORD-FM-365",
     name: "Flip Master 365",
     manufacturer: "Nordic",
     price: 9.99,
-    image: "NordicWare_FlipMaster",
+    image: "NORD-FM-365",
     description: [
         "Whether you're cooking up a batch of tasty hot cakes for breakfast, or grilling prime rib steaks for dinner, this is the spatula for you, any day of the year!",
         "Sturdy stainless steel handle won't bend or rust, and silicone blade won't scratch the non-stick surface of your pan.",
